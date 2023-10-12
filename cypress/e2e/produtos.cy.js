@@ -12,18 +12,19 @@ describe('Pagina de Produtos', () => {
             //,first()
             //.last()
             //.eq(3)
-            .contains(`Aether Gym Pant`)
+            .contains(`Abominable Hoodie`)
             .click()
 
     });
 
     it.only('Deve adicionar produto ao carrinho', () => {
         cy.get(`[class="product-block grid"]`)
-            .contains(`Aether Gym Pant`).click()
-            cy.get('.button-variable-item-32').click()
+            .contains(`Abominable Hoodie`).click()
+            cy.get('.button-variable-item-XS').click()
             cy.get('.button-variable-item-Blue').click()
             cy.get('.input-text').clear().type(2)
             cy.get('.single_add_to_cart_button').click()
+            cy.get('.woocommerce-message').should(`contain`, `adicionados no seu carrinho.`)
 
     });
 
